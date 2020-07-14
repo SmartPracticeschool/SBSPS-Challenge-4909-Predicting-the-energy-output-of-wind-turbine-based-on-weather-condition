@@ -1,11 +1,11 @@
 # SBSPS-Challenge-4909-Predicting-the-energy-output-of-wind-turbine-based-on-weather-condition
 
-<h2> Problem Description <h2>
+<h2 style = green> Problem Description <h2>
 
-Wind energy plays an increasing role in the supply of energy world-wide.
+<h4>Wind energy plays an increasing role in the supply of energy world-wide.
 The energy output of a wind farm is highly dependent on the wind conditions present at its site.
 If the output can be predicted more accurately, energy suppliers can coordinate the
-collaborative production of different energy sources more efficiently to avoid costly overproduction.
+collaborative production of different energy sources more efficiently to avoid costly overproduction.<h4>
 
 
 ## Expected Solutions
