@@ -30,5 +30,7 @@ https://www.kaggle.com/berkerisen/wind-turbine-scada-dataset
 
 https://youtu.be/n3qdvFgT6yE
 
-## Web App Link
+## Deployed Application Link
+
+http://energy-prediction.rf.gd/
 
