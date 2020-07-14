@@ -2,26 +2,26 @@
 
 ## Problem Description
 
-<h4>Wind energy plays an increasing role in the supply of energy world-wide.
+Wind energy plays an increasing role in the supply of energy world-wide.
 The energy output of a wind farm is highly dependent on the wind conditions present at its site.
 If the output can be predicted more accurately, energy suppliers can coordinate the
-collaborative production of different energy sources more efficiently to avoid costly overproduction.<h4>
+collaborative production of different energy sources more efficiently to avoid costly overproduction.
 
 
 ## Expected Solutions
 
-<h4>Develop a time series model to Predict the power output of wind farm based on the weather condition in the site (1 Hr prediction to 72 Hrs. prediction) Build an application to recommend the Power Grid to suggest the best time to utilize the energy from wind farm<h4>
+Develop a time series model to Predict the power output of wind farm based on the weather condition in the site (1 Hr prediction to 72 Hrs. prediction) Build an application to recommend the Power Grid to suggest the best time to utilize the energy from wind farm
 
 
 ## Technologies & Tools
 
- <h4>Python 2 or 3, IBM Watson Studio
+ Python 2 or 3, IBM Watson Studio
  IBM Cloud for Deployment
- Android / any Web frameworks <h4>
+ Android / any Web frameworks
  
 
 ## Data-set References
 
-<h2>https://hpi.de/friedrich/docs/paper/RE1.pdf<h2>
+https://hpi.de/friedrich/docs/paper/RE1.pdf
 
-<h2>https://www.kaggle.com/berkerisen/wind-turbine-scada-dataset<h2>
+https://www.kaggle.com/berkerisen/wind-turbine-scada-dataset
