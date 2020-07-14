@@ -1,6 +1,6 @@
 # SBSPS-Challenge-4909-Predicting-the-energy-output-of-wind-turbine-based-on-weather-condition
 
-##Problem Description
+## Problem Description
 
 <h4>Wind energy plays an increasing role in the supply of energy world-wide.
 The energy output of a wind farm is highly dependent on the wind conditions present at its site.
@@ -10,18 +10,18 @@ collaborative production of different energy sources more efficiently to avoid c
 
 ## Expected Solutions
 
-Develop a time series model to Predict the power output of wind farm based on the weather condition in the site (1 Hr prediction to 72 Hrs. prediction) Build an application to recommend the Power Grid to suggest the best time to utilize the energy from wind farm
+<h4>Develop a time series model to Predict the power output of wind farm based on the weather condition in the site (1 Hr prediction to 72 Hrs. prediction) Build an application to recommend the Power Grid to suggest the best time to utilize the energy from wind farm<h4>
 
 
 ## Technologies & Tools
 
- Python 2 or 3, IBM Watson Studio
+ <h4>Python 2 or 3, IBM Watson Studio
  IBM Cloud for Deployment
- Android / any Web frameworks 
+ Android / any Web frameworks <h4>
  
 
 ## Data-set References
 
-https://hpi.de/friedrich/docs/paper/RE1.pdf
+<h2>https://hpi.de/friedrich/docs/paper/RE1.pdf<h2>
 
-https://www.kaggle.com/berkerisen/wind-turbine-scada-dataset
+<h2>https://www.kaggle.com/berkerisen/wind-turbine-scada-dataset<h2>
