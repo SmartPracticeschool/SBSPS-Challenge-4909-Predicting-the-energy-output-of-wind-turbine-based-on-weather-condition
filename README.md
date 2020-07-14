@@ -25,3 +25,10 @@ Develop a time series model to Predict the power output of wind farm based on th
 https://hpi.de/friedrich/docs/paper/RE1.pdf
 
 https://www.kaggle.com/berkerisen/wind-turbine-scada-dataset
+
+## Project Video Demonstration
+
+https://youtu.be/n3qdvFgT6yE
+
+## Web App Link
+
