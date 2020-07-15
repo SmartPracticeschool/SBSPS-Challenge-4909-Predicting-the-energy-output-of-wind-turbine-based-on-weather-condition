@@ -6,6 +6,9 @@ include_once 'database.php';
 // instantiate user object
 include_once 'user.php';
  
+$database = new Database();
+$db = $database->getConnection();
+ 
 $user = new User($db);
  
 // set user property values
