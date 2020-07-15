@@ -21,12 +21,17 @@
         "info": ""
     },
     {
-        "id": "159c1ca9.6466d3",
-        "type": "tab",
-        "label": "Background Design",
-        "disabled": false,
-        "info": ""
-    },*
+        "id": "11b14c93.993073",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
             "darkTheme": {
                 "default": "#097479",
                 "baseColor": "#097479",
@@ -65,7 +70,10 @@
                 "group-borderColor": {
                     "value": "#555555",
                     "edited": false
-                },*
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
                 },
                 "widget-textColor": {
                     "value": "#eeeeee",
@@ -172,7 +180,16 @@
         "disp": true,
         "width": "20",
         "collapse": true
-    },*
+    },
+    {
+        "id": "f40b221.a117ee",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "9c2179ae.822ff8",
+        "order": 1,
+        "width": 6,
+        "height": 1
+    },
     {
         "id": "2eecc233.bd760e",
         "type": "ui_spacer",
@@ -210,7 +227,18 @@
         "disp": true,
         "width": 20,
         "collapse": true
-    },*
+    },
+    {
+        "id": "a42b06e7.db9ab8",
+        "type": "ui_group",
+        "z": "",
+        "name": "DAY 1 : (09:00 A.M. - 12:00 A.M.)",
+        "tab": "f2f64202.a1429",
+        "order": 4,
+        "disp": true,
+        "width": "20",
+        "collapse": true
+    },
     {
         "id": "f3989323.d2ccb",
         "type": "ui_group",
@@ -334,7 +362,156 @@
     {
         "id": "1d1294a0.cf985b",
         "type": "ui_group",
-        *
+        "z": "",
+        "name": "DAY 2 : (06:00 P.M. - 09:00 P.M.)",
+        "tab": "a3c1e19d.9a28a",
+        "order": 7,
+        "disp": true,
+        "width": 20,
+        "collapse": true
+    },
+    {
+        "id": "9cdec02c.efb4d",
+        "type": "ui_group",
+        "z": "",
+        "name": "DAY 2 : (09:00 P.M. - 12:00 A.M.)",
+        "tab": "a3c1e19d.9a28a",
+        "order": 8,
+        "disp": true,
+        "width": 20,
+        "collapse": true
+    },
+    {
+        "id": "8b8896d0.449c78",
+        "type": "comment",
+        "z": "a5880810.397518",
+        "name": "HTTP Request Via Weather API",
+        "info": "",
+        "x": 570,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "9a82270d.6a6908",
+        "type": "http request",
+        "z": "a5880810.397518",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "http://api.openweathermap.org/data/2.5/forecast?id=1261481&APPID=f044fa317e908c0821619d9509699c2c",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "a0bd6264.4f93b",
+                "cbca8858.921c68",
+                "f8bee3d4.bc654",
+                "6d9ad526.84c38c",
+                "7e6e2752.23d948",
+                "6889ca86.67f804"
+            ]
+        ]
+    },
+    {
+        "id": "bfbba284.833e9",
+        "type": "inject",
+        "z": "a5880810.397518",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "9a82270d.6a6908",
+                "aa651e33.b3d79"
+            ]
+        ]
+    },
+    {
+        "id": "a0bd6264.4f93b",
+        "type": "debug",
+        "z": "a5880810.397518",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 650,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "41b750f1.ccd7e",
+        "type": "ui_text",
+        "z": "a5880810.397518",
+        "group": "9c2179ae.822ff8",
+        "order": 9,
+        "width": 4,
+        "height": 2,
+        "name": "",
+        "label": "Temperature (in °C)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 930,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "cf5ccf2c.b7082",
+        "type": "ui_text",
+        "z": "a5880810.397518",
+        "group": "9c2179ae.822ff8",
+        "order": 10,
+        "width": 4,
+        "height": 2,
+        "name": "",
+        "label": "Humidity (in %)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 780,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "cbca8858.921c68",
+        "type": "change",
+        "z": "a5880810.397518",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list.0.main.temp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 440,
+        "wires": [
+            [
+                "e7e79163.0832"
+            ]
+        ]
+    },
+    {
         "id": "f8bee3d4.bc654",
         "type": "change",
         "z": "a5880810.397518",
@@ -777,7 +954,102 @@
         "x": 790,
         "y": 1320,
         "wires": []
-   *
+    },
+    {
+        "id": "62ed433.d62a2bc",
+        "type": "change",
+        "z": "a5880810.397518",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.data.current_condition.0.pressure",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 1320,
+        "wires": [
+            [
+                "9d082b31.4f42c8",
+                "e330270.77e9dd8"
+            ]
+        ]
+    },
+    {
+        "id": "70da05d8.88947c",
+        "type": "ui_text",
+        "z": "a5880810.397518",
+        "group": "16db05d7.8e39ea",
+        "order": 12,
+        "width": 4,
+        "height": 2,
+        "name": "",
+        "label": "Wind Speed (in m/sec)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 860,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "e5dfd126.70977",
+        "type": "change",
+        "z": "a5880810.397518",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.data.current_condition.0.windspeedKmph",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 1400,
+        "wires": [
+            [
+                "6d94dc1d.5720d4"
+            ]
+        ]
+    },
+    {
+        "id": "9187ba09.72c0c8",
+        "type": "ui_text",
+        "z": "a5880810.397518",
+        "group": "16db05d7.8e39ea",
+        "order": 13,
+        "width": 4,
+        "height": 2,
+        "name": "",
+        "label": "Wind Direction (in °)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 640,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "573c7047.71065",
+        "type": "change",
+        "z": "a5880810.397518",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
                 "p": "payload",
                 "pt": "msg",
                 "to": "payload.data.current_condition.0.winddirDegree",
@@ -941,7 +1213,76 @@
                 "75e8aceb.0403c4"
             ]
         ]
-    },*
+    },
+    {
+        "id": "9e7615c8.2a7b18",
+        "type": "ui_gauge",
+        "z": "a5880810.397518",
+        "name": "",
+        "group": "16db05d7.8e39ea",
+        "order": 4,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 830,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "6d94dc1d.5720d4",
+        "type": "function",
+        "z": "a5880810.397518",
+        "name": "Conversion",
+        "func": "msg.payload = Math.round(msg.payload * 0.2778);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 650,
+        "y": 1380,
+        "wires": [
+            [
+                "b05b31dd.b8afe",
+                "70da05d8.88947c"
+            ]
+        ]
+    },
+    {
+        "id": "51eee0ea.e234e",
+        "type": "http request",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "api.openweathermap.org/data/2.5/forecast?q=delhi&appid=f044fa317e908c0821619d9509699c2c",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 370,
+        "y": 160,
+        "wires": [
+            [
+                "ed5d1f47.16f3f",
+                "17ffc799.56eae8",
+                "184778f8.abd897",
+                "43631394.bbd8cc",
+                "76409cb6.7d2b24",
+                "51a42d40.cf65a4"
+            ]
+        ]
+    },
     {
         "id": "a05a31b1.c698c",
         "type": "inject",
@@ -1067,7 +1408,102 @@
                 "tot": "msg"
             }
         ],
-        *
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 480,
+        "wires": [
+            [
+                "3695c06a.55124",
+                "a66f254f.cc8b28"
+            ]
+        ]
+    },
+    {
+        "id": "745a9eaa.ecb93",
+        "type": "ui_text",
+        "z": "9850183c.f376e8",
+        "group": "cd0e1980.917128",
+        "order": 9,
+        "width": 4,
+        "height": 2,
+        "name": "",
+        "label": "Wind Speed (in m/sec)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 860,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "184778f8.abd897",
+        "type": "change",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list.0.wind.speed",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 560,
+        "wires": [
+            [
+                "6d0cd60f.7938c8",
+                "745a9eaa.ecb93"
+            ]
+        ]
+    },
+    {
+        "id": "92dbb3fd.f9eba",
+        "type": "ui_text",
+        "z": "9850183c.f376e8",
+        "group": "cd0e1980.917128",
+        "order": 10,
+        "width": 4,
+        "height": 2,
+        "name": "",
+        "label": "Wind Direction (in °)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 640,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "43631394.bbd8cc",
+        "type": "change",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list.0.wind.deg",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 640,
+        "wires": [
             [
                 "92dbb3fd.f9eba",
                 "cc10e485.9e07a8"
@@ -1235,7 +1671,75 @@
             "#e6e600",
             "#ca3838"
         ],
-       *
+        "seg1": "",
+        "seg2": "",
+        "x": 990,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "99de1cf4.ddb5d",
+        "type": "function",
+        "z": "9850183c.f376e8",
+        "name": "Conversion",
+        "func": "msg.payload = Math.round(msg.payload - 273.15);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 770,
+        "y": 260,
+        "wires": [
+            [
+                "a1d21aa0.b72b58",
+                "3e7c2613.d4147a"
+            ]
+        ]
+    },
+    {
+        "id": "bae23c17.4733e",
+        "type": "http request",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "api.openweathermap.org/data/2.5/forecast?q=delhi&appid=f044fa317e908c0821619d9509699c2c",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 430,
+        "y": 880,
+        "wires": [
+            [
+                "8a178028.41f09",
+                "e33d5f42.d3dc8",
+                "df111960.635c88",
+                "7cd1b946.a91d08",
+                "909613ab.df10d",
+                "4faf132c.b956fc"
+            ]
+        ]
+    },
+    {
+        "id": "6349c0fe.dfa86",
+        "type": "inject",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 190,
+        "y": 780,
+        "wires": [
+            [
+                "bae23c17.4733e"
+            ]
+        ]
+    },
     {
         "id": "4faf132c.b956fc",
         "type": "debug",
@@ -1882,7 +2386,143 @@
         "rules": [
             {
                 "t": "set",
-            *
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list.2.wind.speed",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 2020,
+        "wires": [
+            [
+                "250282dc.7e6fee",
+                "efc1c776.b49018"
+            ]
+        ]
+    },
+    {
+        "id": "182ae82d.a09f28",
+        "type": "ui_text",
+        "z": "9850183c.f376e8",
+        "group": "29e4f913.154a86",
+        "order": 10,
+        "width": 4,
+        "height": 2,
+        "name": "",
+        "label": "Wind Direction (in °)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 740,
+        "y": 2100,
+        "wires": []
+    },
+    {
+        "id": "363821a0.15b82e",
+        "type": "change",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list.2.wind.deg",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 2100,
+        "wires": [
+            [
+                "182ae82d.a09f28",
+                "a72fe91c.a2bcd8"
+            ]
+        ]
+    },
+    {
+        "id": "1f332a63.24b676",
+        "type": "ui_gauge",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "group": "29e4f913.154a86",
+        "order": 2,
+        "width": 4,
+        "height": 4,
+        "gtype": "donut",
+        "title": "",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 830,
+        "y": 1820,
+        "wires": []
+    },
+    {
+        "id": "a72fe91c.a2bcd8",
+        "type": "ui_gauge",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "group": "29e4f913.154a86",
+        "order": 5,
+        "width": 4,
+        "height": 4,
+        "gtype": "compass",
+        "title": "",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "360",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 700,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "effcf6af.d0d6e8",
+        "type": "ui_gauge",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "group": "29e4f913.154a86",
+        "order": 3,
+        "width": 4,
+        "height": 4,
+        "gtype": "compass",
+        "title": "",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
         "seg2": "",
         "x": 800,
         "y": 1900,
@@ -1994,7 +2634,54 @@
             ]
         ]
     },
-    {*
+    {
+        "id": "d47e5f2d.1b6c4",
+        "type": "http request",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "api.openweathermap.org/data/2.5/forecast?q=delhi&appid=f044fa317e908c0821619d9509699c2c",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 470,
+        "y": 2320,
+        "wires": [
+            [
+                "6ebcf7ef.e1fe28",
+                "42d7f4e3.4e667c",
+                "873b330a.eb8d5",
+                "7d19c4c0.f601bc",
+                "626d2637.719fd8",
+                "23545ca7.dff214"
+            ]
+        ]
+    },
+    {
+        "id": "a4ab98f2.d0d8a8",
+        "type": "inject",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 230,
+        "y": 2220,
+        "wires": [
+            [
+                "d47e5f2d.1b6c4"
+            ]
+        ]
+    },
+    {
+        "id": "23545ca7.dff214",
         "type": "debug",
         "z": "9850183c.f376e8",
         "name": "",
@@ -3043,7 +3730,66 @@
         "format": "{{msg.payload}}",
         "layout": "col-center",
         "x": 760,
-       *
+        "y": 4280,
+        "wires": []
+    },
+    {
+        "id": "c9d8c5dd.490558",
+        "type": "change",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list.5.wind.deg",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 4280,
+        "wires": [
+            [
+                "f0e7fbb1.d73038",
+                "c2de1560.2b3fe8"
+            ]
+        ]
+    },
+    {
+        "id": "a4f1e93b.f8a608",
+        "type": "ui_gauge",
+        "z": "9850183c.f376e8",
+        "name": "",
+        "group": "91dc4c0c.d87c6",
+        "order": 2,
+        "width": 4,
+        "height": 4,
+        "gtype": "donut",
+        "title": "",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 850,
+        "y": 4000,
+        "wires": []
+    },
+    {
+        "id": "c2de1560.2b3fe8",
+        "type": "ui_gauge",
         "z": "9850183c.f376e8",
         "name": "",
         "group": "91dc4c0c.d87c6",
@@ -3972,7 +4718,23 @@
         "type": "ui_gauge",
         "z": "9850183c.f376e8",
         "name": "",
-        *
+        "group": "50fbbf9f.35dc9",
+        "order": 4,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "10",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
         "x": 1990,
         "y": 4860,
         "wires": []
@@ -4027,7 +4789,41 @@
         "title": "",
         "label": "units",
         "format": "{{value}}",
-        "m*
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 2130,
+        "y": 4560,
+        "wires": []
+    },
+    {
+        "id": "97d7ad0d.cf25",
+        "type": "function",
+        "z": "9850183c.f376e8",
+        "name": "Conversion",
+        "func": "msg.payload = Math.round(msg.payload - 273.15);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1910,
+        "y": 4600,
+        "wires": [
+            [
+                "b337dbf.8524228",
+                "5707dad4.8f6e14"
+            ]
+        ]
+    },
+    {
+        "id": "a8aed981.e8b458",
+        "type": "http request",
+        "z": "791895c1.03865c",
+        "name": "",
         "method": "GET",
         "ret": "obj",
         "paytoqs": false,
@@ -4185,7 +4981,29 @@
             [
                 "462fe291.29ce7c",
                 "addcafd0.1354b"
-           *1.03865c",
+            ]
+        ]
+    },
+    {
+        "id": "7b259e19.6a7b9",
+        "type": "ui_text",
+        "z": "791895c1.03865c",
+        "group": "e1d6ed7b.84771",
+        "order": 9,
+        "width": 4,
+        "height": 2,
+        "name": "",
+        "label": "Wind Speed (in m/sec)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 880,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "e3a37554.191018",
+        "type": "change",
+        "z": "791895c1.03865c",
         "name": "",
         "rules": [
             {
@@ -4587,7 +5405,63 @@
                 "pt": "msg",
                 "to": "payload.list.9.main.pressure",
                 "tot": "msg"
-     *
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 1200,
+        "wires": [
+            [
+                "797de49a.ff3e9c",
+                "aaff660f.b8e4a8"
+            ]
+        ]
+    },
+    {
+        "id": "2dd39ff.b97b16",
+        "type": "ui_text",
+        "z": "791895c1.03865c",
+        "group": "ab7df628.0d6a78",
+        "order": 9,
+        "width": 4,
+        "height": 2,
+        "name": "",
+        "label": "Wind Speed (in m/sec)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 960,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "c742b882.fb58c8",
+        "type": "change",
+        "z": "791895c1.03865c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list.9.wind.speed",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 1280,
+        "wires": [
+            [
+                "3989abfc.a7a354",
+                "2dd39ff.b97b16"
             ]
         ]
     },
@@ -5406,8 +6280,96 @@
                 "to": "payload.list.11.main.pressure",
                 "tot": "msg"
             }
-        ],*
-        "action": "".......,
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 2620,
+        "wires": [
+            [
+                "6d867b9b.0aeaa4",
+                "d1259743.4f5488"
+            ]
+        ]
+    },
+    {
+        "id": "528b0519.6ef43c",
+        "type": "ui_text",
+        "z": "791895c1.03865c",
+        "group": "480e185a.263fb8",
+        "order": 9,
+        "width": 4,
+        "height": 2,
+        "name": "",
+        "label": "Wind Speed (in m/sec)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 980,
+        "y": 2720,
+        "wires": []
+    },
+    {
+        "id": "52677967.b0de48",
+        "type": "change",
+        "z": "791895c1.03865c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list.11.wind.speed",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 2700,
+        "wires": [
+            [
+                "ba4663d4.1fe77",
+                "528b0519.6ef43c"
+            ]
+        ]
+    },
+    {
+        "id": "954ac92b.b81f98",
+        "type": "ui_text",
+        "z": "791895c1.03865c",
+        "group": "480e185a.263fb8",
+        "order": 10,
+        "width": 4,
+        "height": 2,
+        "name": "",
+        "label": "Wind Direction (in °)",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 760,
+        "y": 2780,
+        "wires": []
+    },
+    {
+        "id": "bd9a22f5.b247f",
+        "type": "change",
+        "z": "791895c1.03865c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list.11.wind.deg",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
         "property": "",
         "from": "",
         "to": "",
@@ -5426,12 +6388,12 @@
         "type": "ui_gauge",
         "z": "791895c1.03865c",
         "name": "",
-        "group": "480e185a.263.fb..8",
+        "group": "480e185a.263fb8",
         "order": 2,
         "width": 4,
         "height": 4,
         "gtype": "donut",
-        "title": "",.
+        "title": "",
         "label": "units",
         "format": "{{value}}",
         "min": 0,
@@ -5476,9 +6438,9 @@
     {
         "id": "d1259743.4f5488",
         "type": "ui_gauge",
-        "z": "79189.5c1.03865c",
+        "z": "791895c1.03865c",
         "name": "",
-        "group": "480e1.85a.263fb8",
+        "group": "480e185a.263fb8",
         "order": 3,
         "width": 4,
         "height": 4,
@@ -5538,7 +6500,7 @@
     {
         "id": "fa42f73c.6a4418",
         "type": "change",
-        "z": "791895c.1.03865c",
+        "z": "791895c1.03865c",
         "name": "",
         "rules": [
             {
@@ -5558,7 +6520,7 @@
         "y": 2440,
         "wires": [
             [
-                "c66fe1fd..4ddeb"
+                "c66fe1fd.4ddeb"
             ]
         ]
     },
@@ -5579,7 +6541,7 @@
         "max": "100",
         "colors": [
             "#00b500",
-            "#e6e600.",
+            "#e6e600",
             "#ca3838"
         ],
         "seg1": "",
@@ -5647,7 +6609,8 @@
         "y": 2920,
         "wires": [
             [
-                "85c86.
+                "85c86b57.5bafb8"
+            ]
         ]
     },
     {
@@ -5838,7 +6801,24 @@
             {
                 "t": "set",
                 "p": "payload",
-                "pt": "msg",*
+                "pt": "msg",
+                "to": "payload.list.12.wind.deg",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 3500,
+        "wires": [
+            [
+                "410c867c.523558",
+                "f716c52b.24c828"
+            ]
+        ]
     },
     {
         "id": "da23aa47.559f98",
@@ -7357,176 +8337,5 @@
                 "9a82270d.6a6908"
             ]
         ]
-    },
-    {
-        "id": "f3aa9dd7.d91db",
-        "type": "inject",
-        "z": "159c1ca9.6466d3",
-        "name": "",
-        "topic": "Interval",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 230,
-        "y": 180,
-        "wires": [
-            [
-                "8a2a266b.c8c458"
-            ]
-        ]
-    },
-    {
-        "id": "8a2a266b.c8c458",
-        "type": "ui_template",
-        "z": "159c1ca9.6466d3",
-        "group": "cd0e1980.917128",
-        "name": "Code",
-        "order": 13,
-        "width": 0,
-        "height": 0,
-        "format": "<html>\n    <head>\n        <style>\n        body\n        {\n            background-image: url(\"https://i.dailymail.co.uk/1s/2018/11/05/01/5769996-0-image-a-31_1541380925793.jpg\");\n            background-size: cover;\n        }\n        </style>\n    </head>\n    \n    <body>\n        \n    </body>\n</html>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 470,
-        "y": 180,
-        "wires": [
-            [
-                "294a3edd.c52ea2"
-            ]
-        ]
-    },
-    {
-        "id": "294a3edd.c52ea2",
-        "type": "debug",
-        "z": "159c1ca9.6466d3",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 710,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "ea657997.771518",
-        "type": "inject",
-        "z": "159c1ca9.6466d3",
-        "name": "",
-        "topic": "Interval",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 230,
-        "y": 480,
-        "wires": [
-            [
-                "a720937e.b4038"
-            ]
-        ]
-    },
-    {
-        "id": "a720937e.b4038",
-        "type": "ui_template",
-        "z": "159c1ca9.6466d3",
-        "group": "e1d6ed7b.84771",
-        "name": "Code",
-        "order": 13,
-        "width": 0,
-        "height": 0,
-        "format": "<html>\n    <head>\n        <style>\n        body\n        {\n            background-image: url(\"https://s7d2.scene7.com/is/image/TWCNews/fallcolor_jpg\");\n            background-size: cover;\n        }\n        </style>\n    </head>\n    \n    <body>\n        \n    </body>\n</html>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 530,
-        "y": 480,
-        "wires": [
-            [
-                "a9e3e9c9.a26768"
-            ]
-        ]
-    },
-    {
-        "id": "a9e3e9c9.a26768",
-        "type": "debug",
-        "z": "159c1ca9.6466d3",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 770,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "27a08853.a04ac8",
-        "type": "inject",
-        "z": "159c1ca9.6466d3",
-        "name": "",
-        "topic": "Interval",
-        "payload": "",
-        "payloadType": "date",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 210,
-        "y": 320,
-        "wires": [
-            [
-                "2e2b0b41.a230d4"
-            ]
-        ]
-    },
-    {
-        "id": "2e2b0b41.a230d4",
-        "type": "ui_template",
-        "z": "159c1ca9.6466d3",
-        "group": "9c2179ae.822ff8",
-        "name": "Code",
-        "order": 13,
-        "width": 0,
-        "height": 0,
-        "format": "<html>\n    <head>\n        <style>\n        body\n        {\n            background-image: url(\"https://i0.wp.com/thelincolnite.co.uk/wp-content/uploads/2019/10/Autumn-weather-stock.jpg?fit=1860%2C1043&ssl=1\");\n            background-size: cover;\n        }\n        </style>\n    </head>\n    \n    <body>\n        \n    </body>\n</html>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "x": 490,
-        "y": 320,
-        "wires": [
-            [
-                "f6e149fe.debaf8"
-            ]
-        ]
-    },
-    {
-        "id": "f6e149fe.debaf8",
-        "type": "debug",
-        "z": "159c1ca9.6466d3",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 770,
-        "y": 320,
-        "wires": []
     }
 ]
