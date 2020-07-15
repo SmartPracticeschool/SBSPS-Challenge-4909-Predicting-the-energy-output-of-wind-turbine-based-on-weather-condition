@@ -1547,6 +1547,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   #nav-menu-container {
     padding-right: 60px;
   }
+  
 }
 
 @media (max-width: 768px) {
