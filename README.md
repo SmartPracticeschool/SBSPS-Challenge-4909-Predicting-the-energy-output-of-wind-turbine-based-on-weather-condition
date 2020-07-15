@@ -26,4 +26,6 @@ https://hpi.de/friedrich/docs/paper/RE1.pdf
 
 https://www.kaggle.com/berkerisen/wind-turbine-scada-dataset
 
+## Link to project demonstration video
+https://youtu.be/n3qdvFgT6yE
 
