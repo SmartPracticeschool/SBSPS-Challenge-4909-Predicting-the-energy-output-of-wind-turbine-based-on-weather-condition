@@ -8,6 +8,10 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
+    <link rel = "icon" href = "https://www.freepngimg.com/download/orange/85889-thunder-text-triangle-lightning-png-image-high-quality.png" type = "image/x-icon"> 
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -74,7 +78,7 @@
               <div class="carousel-content">
                 <h2>Welcome To The Era Of Energy</h2>
                 <p>Energy is the most invaluable form of life. It is the source that drives millions of homes, factories, industries and many more.</p>
-                <a href="./app/index.php" class="btn-get-started scrollto">Sign Up And Get Started</a>
+                <a href="./app/index1.php" class="btn-get-started scrollto" target="_blank">Sign Up And Get Started</a>
               </div>
             </div>
           </div>
@@ -85,7 +89,7 @@
               <div class="carousel-content">
                 <h2>Predict the Best Time For Energy Harnassment</h2>
                 <p>Using our well-efficient ML model you can now redict the best hour to harness the energy from wind turbines, just at the ease of a few-clicks.</p>
-                <a href="./app/index.php" class="btn-get-started scrollto">Sign Up And Get Started</a>
+                <a href="./app/index1.php" class="btn-get-started scrollto" target="_blank">Sign Up And Get Started</a>
               </div>
             </div>
           </div>
@@ -96,7 +100,7 @@
               <div class="carousel-content">
                 <h2>Know the Current Weather Conditions Too..</h2>
                 <p>Even you can predict the uncertain weather conditions, using the integrated Weather Dashboard, accompanying the application's dashboard!</p>
-                <a href="./app/index.php" class="btn-get-started scrollto">Sign Up And Get Started</a>
+                <a href="./app/index1.php" class="btn-get-started scrollto" target="_blank">Sign Up And Get Started</a>
               </div>
             </div>
           </div>
@@ -191,7 +195,7 @@
 
           <div class="col-lg-3 col-md-6 wow fadeInUp">
             <div class="member">
-              <img src="img/team1.jpg" class="img-fluid" alt="">
+              <img src="img/team-1.jpg" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Ankit Jain</h4>
@@ -209,7 +213,7 @@
 
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="member">
-              <img src="img/team2.png" class="img-fluid" alt="">
+              <img src="img/team-2.jpg" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Shareef Alam</h4>
@@ -227,7 +231,7 @@
 
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             <div class="member">
-              <img src="img/team3.jpg" class="img-fluid" alt="">
+              <img src="img/team-3.jpg" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Manish Prasad</h4>
@@ -291,7 +295,7 @@
         <div class="form">
           <div id="sendmessage">Your message has been sent. Thank you!</div>
           <div id="errormessage"></div>
-          <form action="get" method="post" role="form" class="contactForm">
+          <form action="" method="post" role="form" class="contactForm">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required />
