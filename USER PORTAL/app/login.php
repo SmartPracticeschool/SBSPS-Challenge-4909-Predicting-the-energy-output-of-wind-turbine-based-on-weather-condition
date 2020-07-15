@@ -1,9 +1,4 @@
 <?php
-// include database and object files
-include_once 'database.php';
-include_once 'user.php';
- 
-// get database connection
 $database = new Database();
 $db = $database->getConnection();
  
